@@ -1,0 +1,9 @@
+.container {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.controls {
+    display: flex;
+    flex-direction: column;
+}

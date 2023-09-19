@@ -1,0 +1,8 @@
+.idea/
+build/
+.vscode/
+.DS_Store
+webApp/src/simple-nes.js
+node_modules/
+dist/
+roms/
