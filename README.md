@@ -10,7 +10,7 @@ npm install
 make build
 make serve
 ```
-Your emulator should be running on `localhost:3000`
+Your emulator should be running on `localhost:3000/nes`
 
 NES Emulator forked from https://github.com/amhndu/SimpleNES
 

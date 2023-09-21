@@ -25,11 +25,7 @@ serve:
 
 build: clean demo simple-nes
 	mkdir ./dist
-	cp webApp/index.html ./dist
-	cp webApp/style.css ./dist
-	cp webApp/src/index-demo.js ./dist
-	cp webApp/src/index.js ./dist
-	cp demoApp/build/demo.js ./dist
+	cp -a webApp/ ./dist
 	cp demoApp/build/demo.wasm ./dist
 	cp SimpleNES/build/emulator.js ./dist/simple-nes.js
 	cp SimpleNES/build/emulator.wasm ./dist
