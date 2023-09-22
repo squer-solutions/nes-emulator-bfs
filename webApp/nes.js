@@ -15,7 +15,7 @@ const ctx = canvas.getContext("2d");
 
 async function loadEmulator() {
   const wasm = await Module();
-  emulator = new wasm.SimpleNesWasmContext(width, height, "mario-bros.nes");
+  emulator = new wasm.SimpleNesWasmContext(width, height, "firedemo.nes");
   const result = emulator.run();
   console.log("Emulator run result:", result);
 

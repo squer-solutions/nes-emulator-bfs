@@ -5,4 +5,4 @@ build/
 webApp/src/simple-nes.js
 node_modules/
 dist/
-roms/
+roms/mario-bros.nes
