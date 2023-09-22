@@ -1,35 +1,29 @@
-demo-clean:
-	rm -rf demoApp/build
-	mkdir demoApp/build
+# demo-clean:
+# 	rm -rf demoApp/build
+# 	mkdir demoApp/build
 
-demo: demo-clean
-	docker run --rm -v $(shell pwd):/src -u $(id -u):$(id -g) emscripten/emsdk \
-	emcc demoApp/demo.cpp -o demoApp/build/demo.js \
-	-s WARN_ON_UNDEFINED_SYMBOLS=0
+# demo: demo-clean
+# 	docker run --rm -v $(shell pwd):/src -u $(id -u):$(id -g) emscripten/emsdk \
+# 	emcc
 
-simple-nes-clean:
-	rm -rf webApp/src/simple-nes 
-	rm -rf SimpleNES/build
-	mkdir SimpleNES/build
+# simple-nes-clean:
+# 	rm -rf webApp/src/simple-nes 
+# 	rm -rf SimpleNES/build
+# 	mkdir SimpleNES/build
 
-simple-nes: simple-nes-clean
-	docker run --rm -v $(shell pwd):/src -u $(id -u):$(id -g) \
-	emscripten/emsdk emcc SimpleNES/context.cpp \
-	-ISimpleNES/include/ -ISimpleNES/src/ \
-	-o SimpleNES/build/emulator.js \
-	--preload-file roms/ \
-	--no-entry --bind -sEXPORT_ES6=1 -sMODULARIZE=1
+# simple-nes: simple-nes-clean
+# 	docker run --rm -v $(shell pwd):/src -u $(id -u):$(id -g) emscripten/emsdk
+# 	emcc
 
 serve:
 	npx serve dist
 
-build: clean demo simple-nes
+build: clean
 	mkdir ./dist
 	cp -a webApp/ ./dist
-	cp demoApp/build/demo.wasm ./dist
-	cp SimpleNES/build/emulator.js ./dist/simple-nes.js
-	cp SimpleNES/build/emulator.wasm ./dist
-	cp SimpleNES/build/emulator.data ./dist
 
-clean: simple-nes-clean demo-clean
+clean:
 	rm -rf dist/
+
+get-nes-code:
+	git cherry-pick 0e7935769b9838e32b75bd90c8494e828e4dd767
